@@ -30,8 +30,7 @@ g = generate_mac.generate_mac
 Procedurely generated Vendor and Host bytes. Checks for broadcast bit
 
 ```
-`g.total_random()`
-
+g.total_random()
 '12:7E:C4:B5:F1:8E'
 ```
 
