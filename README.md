@@ -21,24 +21,29 @@ Usage
 -----
 
 Import and set up an object.
-`
-import generate_mac
-g = generate_mac.generate_mac
-`
+
+`import generate_mac`
+`g = generate_mac.generate_mac`
+
 Procedurely generated Vendor and Host bytes. Checks for broadcast bit
+
 `g.total_random()`
+
 '12:7E:C4:B5:F1:8E'
 
 Read Vendor bytes from random line in a file. This has to be formated the same
 as wireshark's manuf file.
 `g.vid_file_random('/usr/share/wireshark/manuf'`
+
 '00:55:DA:10:FB:D8'
 
 Read from a manuf file like above, but find Vendor bytes belonging to a specific
 vendor, by name.
 `g.vid_file_vendor('/usr/share/wireshark/manuf', 'Apple')`
+
 '94:0C:98:BC:74:1C'
 
 Provide the vendor bytes in a string. Generate Host bytes only
 `g.vid_provided('AA:BB:CC')`
+
 'AA:BB:CC:B8:B3:01'
