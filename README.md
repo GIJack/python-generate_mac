@@ -50,6 +50,7 @@ g.vid_file_vendor('/usr/share/wireshark/manuf', 'Apple')
 ```
 
 Provide the vendor bytes in a string. Generate Host bytes only
-```g.vid_provided('AA:BB:CC')
+```
+g.vid_provided('AA:BB:CC')
 'AA:BB:CC:B8:B3:01'
 ```
