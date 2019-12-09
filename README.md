@@ -22,8 +22,10 @@ Usage
 
 Import and set up an object.
 
-`import generate_mac`
-`g = generate_mac.generate_mac`
+```
+import generate_mac
+g = generate_mac.generate_mac
+```
 
 Procedurely generated Vendor and Host bytes. Checks for broadcast bit
 
