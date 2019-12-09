@@ -1,7 +1,7 @@
 Python-generate_mac
 ===================
 
-Python class for Generating Ethernet MAC addresses. Can use the wireshark manuf
+Python library for Generating Ethernet MAC addresses. Can use the wireshark manuf
 for specific vendors, and or a random, but assigned address. Will work with
 any file formated the same as said file.
 
