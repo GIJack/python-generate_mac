@@ -47,9 +47,6 @@ class generate_mac():
             except:
                 continue
             out_lines.append(line)
-        # delete the first line which is 00:00:00, by Xerox. Malformed, and
-        # unlikely to be in use with modern equipment
-        del(file_lines[0])
 
         return out_lines
 
