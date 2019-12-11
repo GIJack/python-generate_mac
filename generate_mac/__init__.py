@@ -185,3 +185,8 @@ class generate_mac():
         rand_bytes = generate_mac._gen_rand_bytes(3)
         output = vid_bytes + ":" + rand_bytes
         return output
+    
+    def list_vendors(vid_file):
+        '''Returns a list[] of valid ETH Vendors that can be used with vid_file_vendor()'''
+        file_lines = generate_mac._read_vid_file(vid_file)
+        return list(generate_mac._valid_vendors)
