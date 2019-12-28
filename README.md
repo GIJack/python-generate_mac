@@ -17,6 +17,8 @@ instead of being completely random
 **vid_provided(_vid bytes_)** - specify the VID bytes when calling the function.
 Random device bytes will be generated.
 
+**list_vendors(_file_)** - return a python list [] with valid vendors
+
 Usage
 -----
 
@@ -52,4 +54,10 @@ Provide the vendor bytes in a string. Generate Host bytes only
 ```
 g.vid_provided('AA:BB:CC')
 'AA:BB:CC:B8:B3:01'
+```
+
+List valid vendor options as a list.
+```
+g.list_vendors('/usr/share/wireshark/manuf')
+['Vendor1','Vendor2','etc']
 ```
