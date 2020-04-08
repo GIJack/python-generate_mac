@@ -67,13 +67,13 @@ class generate_mac():
         try:
            suffix = in_line[0].split('/')[1]
         except:
-           suffix = 'none'
+           suffix = None
 
         bytes_needed = generate_mac._vid_table[suffix]
 
         # Generate the string returned
         out_vid = ''
-        if suffix == 'none':
+        if suffix == None:
             out_vid = prefix
         else:
             # Cut down the trailing zeros so random data can be generated in that
