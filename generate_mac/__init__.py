@@ -190,3 +190,20 @@ class generate_mac():
         '''Returns a list[] of valid ETH Vendors that can be used with vid_file_vendor()'''
         file_lines = generate_mac._read_vid_file(vid_file)
         return list(generate_mac._valid_vendors)
+
+    def is_mac_address(mac_address):
+        '''Test if a given string is a valid Ethernet MAC address. return True or False'''
+        try:
+            mac_bytes=mac_address.split(":")
+        except:
+            return False
+        if len(mac_bytes) != 6:
+            return False
+
+        # First Octet needs to be odd.       
+        mac_byte_bcast = mac_bytes[0][1]
+        mac_byte_bcast = mac_byte_bcast.upper()
+        if mac_byte_bcast in generate_mac._valid_bcast_char:
+            return True
+        else:
+            return False

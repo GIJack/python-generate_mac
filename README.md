@@ -19,6 +19,9 @@ Random device bytes will be generated.
 
 **list_vendors(_file_)** - return a python list [] with valid vendors
 
+**is_mac_address(_mac_)** - Takes a string, and checks if it is a valid Ethernet
+MAC address. returns True or False(bool type)
+
 Usage
 -----
 
@@ -60,4 +63,10 @@ List valid vendor options as a list.
 ```
 g.list_vendors('/usr/share/wireshark/manuf')
 ['Vendor1','Vendor2','etc']
+```
+
+Check if a MAC address is valid
+```
+if g.is_mac_address('94:0C:98:BC:74:1C') == True:
+    print('Valid Ethernet AAddress')
 ```
