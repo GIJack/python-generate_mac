@@ -68,5 +68,5 @@ g.list_vendors('/usr/share/wireshark/manuf')
 Check if a MAC address is valid
 ```
 if g.is_mac_address('94:0C:98:BC:74:1C') == True:
-    print('Valid Ethernet AAddress')
+    print('Valid Ethernet Address')
 ```
