@@ -12,7 +12,7 @@ class generate_mac():
     '36':2,
     '32':3,
     '28':4,
-    'none':6,
+    None:6,
     }
     def _strip_comments(in_list):
         '''Proccesses out comments using # as the comment character'''
@@ -208,14 +208,25 @@ class generate_mac():
             return False
     
     def get_vid_bytes(mac_address):
-        '''return vendor bytes from a given MAC address as a string'''
+        '''Return vendor bytes from a given MAC address as a string'''
         # check if this is a valid mac address
         if generate_mac.is_mac_address(mac_address) != True:
-            raise ValueError(mac_address + ' is not a validi MAC address')
+            raise ValueError(mac_address + ' is not a valid MAC address')
 
         output = ""
         # Grab the first three bytes, this is the VID
         mac_bytes = mac_address.split(":")
         output = ":".join(mac_bytes[0:3])
+
+        return output
+    
+    def another_same_vid(mac_address):
+        '''Generate another MAC address from the same VID bytes'''
+        output = ""
+            
+        vid_bytes = generate_mac.get_vid_bytes(mac_address)
+        dev_bytes = generate_mac._gen_rand_bytes(3)
+        output    = vid_bytes + ":" + dev_bytes
+        output    = output.upper()
 
         return output
