@@ -70,3 +70,9 @@ Check if a MAC address is valid
 if g.is_mac_address('94:0C:98:BC:74:1C') == True:
     print('Valid Ethernet Address')
 ```
+
+Get the VID bytes from a MAC address
+```
+g.get_vid_bytes('94:0C:98:BC:74:1C')
+'94:0C:98'
+```

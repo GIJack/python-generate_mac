@@ -207,3 +207,16 @@ class generate_mac():
             return True
         else:
             return False
+    
+    def get_vid_bytes(mac_address):
+        '''return vendor bytes from a given MAC address as a string'''
+        # check if this is a valid mac address
+        if generate_mac.is_mac_address(mac_address) != True:
+            raise ValueError(mac_address + ' is not a validi MAC address')
+
+        output = ""
+        # Grab the first three bytes, this is the VID
+        mac_bytes = mac_address.split(":")
+        output = ":".join(mac_bytes[0:3])
+
+        return output
