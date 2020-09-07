@@ -141,7 +141,6 @@ class generate_mac():
     def vid_file_vendor(vid_file,vendor):
         '''Generates a random MAC from a specified vendor name'''
         file_lines = generate_mac._read_vid_file(vid_file)
-        # Get a random VID assigned to Apple Inc
         line_vendor = ""
         vid_bytes   = ""
         descrption  = ""
