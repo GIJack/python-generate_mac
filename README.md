@@ -68,7 +68,6 @@ Check if a MAC address is valid. returns a Bool(True,False)
 ```
 generate_mac.is_mac_address('00:06:8C:35:5E:C4')
 True
-
 ```
 
 Get the VID bytes from a MAC address
