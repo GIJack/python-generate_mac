@@ -99,14 +99,21 @@ class generate_mac():
     def _is_byte(test_byte):
         '''Tests if a string is a hexdecimal byte, returns True/False'''
         test_byte = test_byte.strip(":")
+
+        # Bytes need to be two hexdecimal chars
+        if len(test_byte) != 2:
+            return False
+
         # If a byte does not convert from hex, its not a byte
         try:
             test_byte = int(test_byte,16)
         except:
             return False
+
         # If the value is out of range for a single byte, it is not
         if  0 < test_byte > 255:
             return False
+
         #If we get to the end, its a byte
         return True
 
@@ -214,6 +221,7 @@ class generate_mac():
 
     def is_mac_address(mac_address):
         '''Test if a given string is a valid Ethernet MAC address. return True or False'''
+        # Check to make sure its 6 fields split with a colon - :
         try:
             mac_bytes=mac_address.split(":")
         except:
@@ -221,6 +229,11 @@ class generate_mac():
         if len(mac_bytes) != 6:
             return False
 
+        # Make sure all bytes are in fact bytes
+        for byte in mac_bytes:
+          if generate_mac._is_byte(byte) == False:
+              return False
+         
         # First Octet needs to be odd.       
         mac_byte_bcast = mac_bytes[0][1]
         mac_byte_bcast = mac_byte_bcast.upper()
