@@ -11,8 +11,9 @@ Supported functions:
 
 **vid_file_random(_file_)** - uses random line from wireshark's manuf file
 
-**vid_file_vendor(_file, name_)** - specify a vendor name, uses wireshark's manuf file
-instead of being completely random
+**vid_file_vendor(_file, vendor name, desc=optional_)** - specify a vendor name,
+uses wireshark's manuf file instead of being completely random. May optionally
+specify desc, which searches description within the vendor field
 
 **vid_provided(_vid bytes_)** - specify the VID bytes when calling the function.
 Random device bytes will be generated.
@@ -50,6 +51,12 @@ vendor, by name.
 ```
 generate_mac.vid_file_vendor('/usr/share/wireshark/manuf', '3Com')
 '00:06:8C:C7:3F:93'
+```
+*OPTIONAL:* this can also now search the description field
+
+```
+generate_mac.vid_file_vendor("/usr/share/wireshark/manuf","Motorola","Wuhan")
+'40:A1:08:16:11:D2'
 ```
 
 Provide the vendor bytes in a string. Generate Host bytes only
