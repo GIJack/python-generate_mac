@@ -146,45 +146,44 @@ class generate_mac():
         return(output)
         
     def vid_file_vendor(vid_file,vendor,desc=None):
-        '''Generates a random MAC from a specified vendor name. Takes three parameters. file name, vendor name, and description which is optional. description can be a partial match'''
+        '''Generates a random MAC from a specified vendor name. Takes three parameters. file name, vendor name, and description(optional). description can be a partial match'''
         file_lines = generate_mac._read_vid_file(vid_file)
 
         line_vendor = ""
         vid_bytes   = ""
-        file_desc   = "" # description from file
+        file_desc   = ""
         rand_line   = ""
         # If the vendor is not in vendor list, throw an error, otherwise
-        # function will hang
-        if vendor not in generate_mac._valid_vendors:
-            raise KeyError(vendor + " has no associated VID byte in manuf file")
-        if desc == None:
-            while line_vendor != vendor:
-                # Get a random line from the file, and then proccess
-                rand_line    = file_lines[ random.randrange( len(file_lines) ) ]
-                rand_line    = generate_mac._get_processed_vid(rand_line)
-                # Fill in the blanks
-                if len(rand_line) == 4:
-                    vid_bytes,bytes_needed,line_vendor,file_desc = rand_line
-                elif len(rand_line) == 3:
-                    vid_bytes,bytes_needed,line_vendor = rand_line
+        # function will hang if vendor not in
+        # generate_mac._valid_vendors: raise KeyError(vendor + " has no
+        # associated VID byte in manuf file")
 
-        else:
-            search_lines = []
-            for line in file_lines:
-                line = generate_mac._get_processed_vid(line)
-                if len(line) == 4:
-                    vid_bytes,bytes_needed,line_vendor,file_desc = line
-                else:
-                    continue
+        search_lines = []
+        for line in file_lines:
+            line = generate_mac._get_processed_vid(line)
+            # split the line into named variables. for formating see above fuction _get_processed_vid()
+            if len(line) == 4:
+                vid_bytes,bytes_needed,line_vendor,file_desc = line
+            elif len(line) == 3:
+                vid_bytes,bytes_needed,line_vendor = line
+            else:
+                continue
 
-                if line_vendor.lower() == vendor.lower() and desc.lower() in file_desc.lower():
-                    search_lines.append(line)
+            # Compile a list of matching lines into search_lines. use description if its present
+            if desc == None and vendor.lower() == line_vendor.lower():
+                search_lines.append(line)
+            elif desc == None:
+                continue
+            elif desc.lower() in file_desc.lower() and vendor.lower() == line_vendor.lower():
+                search_lines.append(line)
+            else:
+                continue
 
-            if len(search_lines) == 0:
-                raise KeyError("No such description with " + vendor + " in file")
-
-            rand_line = search_lines[ random.randrange( len(search_lines) ) ]
-            vid_bytes,bytes_needed,line_vendor,file_desc = rand_line
+        # If there are no search_lines, there are no matches, raise error
+        if len(search_lines) == 0:
+            raise KeyError("No Match Vendor: " + vendor + " Desc: " + str(desc))          
+        rand_line = search_lines[ random.randrange( len(search_lines) ) ]
+        vid_bytes,bytes_needed,line_vendor,file_desc = rand_line
 
         # Now generate the random device bytes
         bytes_needed = rand_line[1] //2
