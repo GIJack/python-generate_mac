@@ -49,14 +49,14 @@ generate_mac.vid_file_random('/usr/share/wireshark/manuf')
 Read from a manuf file like above, but find Vendor bytes belonging to a specific
 vendor, by name.
 ```
-generate_mac.vid_file_vendor('/usr/share/wireshark/manuf', '3Com')
-'00:06:8C:C7:3F:93'
+generate_mac.vid_file_vendor('/usr/share/wireshark/manuf',"Motorola")
+'40:88:05:4F:CE:82'
 ```
 *OPTIONAL:* this can also now search the description field
 
 ```
-generate_mac.vid_file_vendor("/usr/share/wireshark/manuf","Motorola","Wuhan")
-'40:A1:08:16:11:D2'
+generate_mac.vid_file_vendor('/usr/share/wireshark/manuf',"Motorola","BSG")
+'00:24:37:5C:3A:8B'
 ```
 
 Provide the vendor bytes in a string. Generate Host bytes only
