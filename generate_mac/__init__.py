@@ -248,7 +248,7 @@ class generate_mac():
         '''Return vendor bytes from a given MAC address as a string'''
         # check if this is a valid mac address
         if generate_mac.is_mac_address(mac_address) != True:
-            raise ValueError(mac_address + ' is not a valid MAC address')
+            raise ValueError(str(mac_address) + ' is not a valid MAC address')
 
         output = ""
         # Grab the first three bytes, this is the VID
