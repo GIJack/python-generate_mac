@@ -1,12 +1,16 @@
 Python-generate_mac
 ===================
 
-Python library for Generating Ethernet MAC addresses. Can use the wireshark manuf
-for specific vendors, and or a random, but assigned address. Will work with
-any file formated the same as said file.
+Python library for working with Ethernet MAC addresses. Functions for generating
+transforming and testing MAC addresses.
+
+Uses Wireshark's manuf, or s similarly formated file as input for specific
+Vendor ID(VID) bytes, for creating more 
 
 Supported functions:
 
+Generate
+--------
 **total_random()** - Procedurely generated MAC address, using random function.
 
 **vid_file_random(_file_)** - uses random line from wireshark's manuf file
@@ -18,10 +22,19 @@ specify desc, which searches description within the vendor field
 **vid_provided(_vid bytes_)** - specify the VID bytes when calling the function.
 Random device bytes will be generated.
 
+Test
+-------
 **list_vendors(_file_)** - return a python list [] with valid vendors
 
 **is_mac_address(_mac_)** - Takes a string, and checks if it is a valid Ethernet
 MAC address. returns True or False(bool type)
+
+Transform
+---------
+**get_vid_bytes(_mac_)** - Returns the vendor bytes(first three) from a MAC address.
+
+**another_same_vid(_mac)** - Generates another MAC with diffrent device bytes
+with same vendor bytes as input
 
 Usage
 -----
