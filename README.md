@@ -33,7 +33,7 @@ Transform
 ---------
 **get_vid_bytes(_mac_)** - Returns the vendor bytes(first three) from a MAC address.
 
-**another_same_vid(_mac)** - Generates another MAC with diffrent device bytes
+**another_same_vid(_mac_)** - Generates another MAC with diffrent device bytes
 with same vendor bytes as input
 
 Usage
