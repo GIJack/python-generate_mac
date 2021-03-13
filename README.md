@@ -24,7 +24,8 @@ Random device bytes will be generated.
 
 Test
 -------
-**list_vendors(_file_)** - return a python list [] with valid vendors
+**list_vendors(_file_)** - return a python set{} of uniqe valid vendors, from
+a wireshark manuf file
 
 **is_mac_address(_mac_)** - Takes a string, and checks if it is a valid Ethernet
 MAC address. returns True or False(bool type)
