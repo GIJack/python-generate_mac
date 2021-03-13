@@ -219,7 +219,7 @@ class generate_mac():
     def list_vendors(vid_file):
         '''Returns a list[] of valid ETH Vendors that can be used with vid_file_vendor()'''
         file_lines = generate_mac._read_vid_file(vid_file)
-        return list(generate_mac._valid_vendors)
+        return generate_mac._valid_vendors
 
     def is_mac_address(mac_address):
         '''Test if a given string is a valid Ethernet MAC address. return True or False'''
