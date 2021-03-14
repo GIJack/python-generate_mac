@@ -28,7 +28,7 @@ class generate_mac():
         ''' Every line is [MAC,Vendor,Comment]'''
         out_lines = []
         try:
-            in_file    = open(vid_file,"r")
+            in_file    = open(vid_file,"r",encoding="utf8")
             file_lines = in_file.readlines()
             in_file.close()
         except FileNotFoundError:
