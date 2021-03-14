@@ -1,0 +1,7 @@
+README.md
+setup.py
+generate_mac/__init__.py
+python_generate_mac.egg-info/PKG-INFO
+python_generate_mac.egg-info/SOURCES.txt
+python_generate_mac.egg-info/dependency_links.txt
+python_generate_mac.egg-info/top_level.txt
