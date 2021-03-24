@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="python-generate_mac",
-    version="1.3.0",
+    version="1.3.1",
     author="GI_Jack",
     author_email="GI_Jack@hackermail.com",
     description="Library for generating Ethernet MAC addresses",
@@ -18,5 +18,5 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.0',
+    python_requires='>=3.4',
 )
