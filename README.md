@@ -4,7 +4,7 @@ Python-generate_mac
 Python library for working with Ethernet MAC addresses. Functions for generating
 transforming and testing MAC addresses.
 
-Uses Wireshark's manuf, or s similarly formated file as input for specific
+Uses Wireshark's manuf, or a similarly formated file as input for specific
 Vendor ID(VID) bytes, for creating more 
 
 Supported functions:
