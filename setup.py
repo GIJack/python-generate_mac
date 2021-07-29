@@ -8,7 +8,7 @@ setuptools.setup(
     version="1.3.1",
     author="GI_Jack",
     author_email="GI_Jack@hackermail.com",
-    description="Library for generating Ethernet MAC addresses",
+    description="Library for generating and analyzing Ethernet MAC addresses",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/GIJack/python-generate_mac",
